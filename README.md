@@ -1,31 +1,31 @@
 # SP23-Context-Awareness-BackgroundSound-Alerts
 
-## Checkpoint 1
+# About
 
-[Prototype Video Link](https://youtu.be/DsEicJNPXCw)
+A senior group project, this SPA was designed to administer a scientific experiment to participants and aggregate data in a mongo database. Notification sound effects were played randomly over 3 different background noise contexts, users were asked to click a button when they heard a notification sound. We then calculated a hit rate to investigate how different sound effect and background sound pairings performed. Data analysis done in Juypter Notebook with pandas
 
-### Team Contributions Thus Far:
+# Requirements
+* nodejs 19.3.0
 
-#### Elita Danilyuk:
-Prototype mockups and design for proposal. Experiment descriptions for proposal and draft experiment design. Wrote related works for checkpoint 1. Citation contributions for Assignment 1 to be used in paper.
-#### Dan Butcher:
-Implemented code skeleton for webapp/prototype, implemented code for demographics survey and data collection, styling and CSS for webapp. Wrote methodology for proposal and checkpoint 1. Citation contributions for Assignment 1 to be used in paper.
-#### Zack Lamb:
-Implemented participant identification features, additions to demographics survey. Wrote related works for proposal and checkpoint 1. Citation contributions for Assignment 1 to be used in paper.
-#### Zachary Lowe:
-Set up Trello board for project tracking. Implemented WPM counter and typing prompt to prototype. Set up LaTEX document. Wrote introduction for proposal and checkpoint 1. Recorded video for checkpoint 1. Wrote README for checkpoint 1. Citation contributions for Assignment 1 to be used in paper.
+# Run Instructions 
+Install node dependencies and run the app locally in dev mode with:
+`./bin/run.sh init && ./bin/run.sh dev`
 
-### Future Distributions of Work:
-#### Elita Danilyuk:
-* Implement error count in typing test and add to final data
-* Visual que that a typing error has been made, input text box does not respond to incorrect entry
-#### Dan Butcher:
-* Implement simple hearing test
-* BackgroundSound design for notifications and background noises.
-#### Zack Lamb:
-* Visual designs for individual background sound phase pages
-* Build rest counter page with timer in between background sound phases
-#### Zachary Lowe:
-* Plans to implement a "stop typing" feature that prevents typing in even of a typo. (May also just highlight in red any incorrect text entered into the WPM submission box.) Plans to implement ambient noise playback on experiment prototype.
-### Meeting Frequencies:
-As a team we have met each Thursday since January 26th to discuss current status of project and assist with planning and development. (Did not meet over Spring break.) Meetings are conducted virtually through Microsoft Teams. In addition to this we are in frequent contact with each other through a Teams group chat.
+A more detailed document of the run script is [here](docs/run.md)
+
+# Debug Mode
+In the upper left corner of the app there is a debug switch, this is used to display data as it is aggregated throughout the app and allows page navigation that would not be allowed to a general user. This was hidden in the 'deployed' version of the app.
+
+# General Architecture
+This App has a simple React Single Page front-end in directory `client/` with an express back-end in directory `server/`. The back-end serves up the audio files used in the experiment and is configured for CORS since the front-end and back-end are different servers. The back-end also interfaces with the mongodb database. The database credential was added to the .gitignore, this App functions without it for demonstration purposes but does not aggregate data like it did in 'production'.
+
+# Data Results
+The data was all analyzed automatically with python in a juypter notebook in directory `tools/`. The scripts would grab the data from the database with the database credentials. Since those credentials are not available publicly, this won't work. Here are some of the visualizations of the data we captured:
+
+![hit-thresholds.png](data%2Fimgs%2Fhit-thresholds.png)
+![hit-stats.png](data%2Fimgs%2Fhit-stats.png)
+![age-performance-scatter.png](data%2Fimgs%2Fage-performance-scatter.png)
+
+The final raw data can be found [here](data%2Ffinal-data.csv).
+
+And our final report on the experiment can be found [here](final-deliverable%2FCASA_Final_Paper.pdf)

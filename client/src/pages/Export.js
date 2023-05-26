@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import SaveButton from "../components/save-button";
+import SaveButton from "../components/SaveButton";
 import ClearDatabaseButton from "../components/ClearDatabaseButton";
 
 export default function Export(props){
@@ -37,6 +37,10 @@ export default function Export(props){
             }
         }
     }
+
+    const avgWPM = (phaseIndex)=>{
+        return props.context.experimentState.phaseData[phaseIndex].wmp ? props.context.experimentState.phaseData[phaseIndex].wpm.toString() : "N/A"
+    }
     
     return(
         <div className={"content"}>
@@ -56,9 +60,9 @@ export default function Export(props){
                 Otherwise, the experiment is now over.
             </p>
             <br/>
-            <p className={"text-body"}>Average words per minute for Phase 1: {props.context.experimentState.phaseData[0].wpm.toString()}</p>
-            <p className={"text-body"}>Average words per minute for Phase 2: {props.context.experimentState.phaseData[1].wpm.toString()}</p>
-            <p className={"text-body"}>Average words per minute for Phase 3: {props.context.experimentState.phaseData[2].wpm.toString()}</p>
+            <p className={"text-body"}>Average words per minute for Phase 1: {avgWPM(0)}</p>
+            <p className={"text-body"}>Average words per minute for Phase 2: {avgWPM(1)}</p>
+            <p className={"text-body"}>Average words per minute for Phase 3: {avgWPM(2)}</p>
             <br/>
             <p className={"text-body"}>
                 Note: Although words per minute were listed and shown on your screen, the real goal of this experiment was to see which sound alerts are most noticeable given the various backgrounds.

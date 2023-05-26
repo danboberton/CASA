@@ -12,5 +12,8 @@ export async function clearDatabase(){
         } finally {
             return {success: result}
         }
+    }).catch(() => {
+        console.log("ERROR clearing the database, probably don't have database credentials, returning failure")
+        return {success: false}
     })
 }

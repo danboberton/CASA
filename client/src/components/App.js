@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Root from "../pages/Root";
-import TaskDescription from "../pages/taskDescription";
-import DemographicForm from "../pages/demographicForm";
+import TaskDescription from "../pages/TaskDescription";
+import DemographicsForm from "../pages/DemographicsForm";
 import subject from "../data/Subject";
-import Export from "../pages/export";
+import Export from "../pages/Export";
 import NavBar from "./NavBar";
-import ExperimentController from "../pages/experement-controller";
+import ExperimentController from "../pages/ExperementController";
 import DebugButton from "./DebugButton";
 import SampleTask from "../pages/SampleTask";
 
@@ -39,7 +39,7 @@ export default function App(){
 
     const demographicsForm = {
         name: "demographicsForm",
-        element: ()=> <DemographicForm context={context}/>
+        element: ()=> <DemographicsForm context={context}/>
     }
 
     const sampleTask = {

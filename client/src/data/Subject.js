@@ -15,6 +15,19 @@ export default class subject {
 
     #NUMBER_OF_PHASES = 3;
 
+    configureExperiment() {
+        getExperimentCount()
+            .then((count) => {
+                this.groupID = generate_groupID(count.count)
+                this.assignedExperiment = AssignExp(this.groupID, count.count)
+            })
+            .catch(() => {
+                console.log("Error getting experiment count, providing default experiment. Maybe you don't have credentials for the database?")
+                this.groupID = generate_groupID(1)
+                this.assignedExperiment = AssignExp(this.groupID, 1)
+            })
+    }
+
     constructor(knownGroupID, knownAssignedExperiment) {
         for (let i = 0; i < this.#NUMBER_OF_PHASES; i++) {
             this.phaseData.push(new UserActionData())
@@ -27,24 +40,10 @@ export default class subject {
             if (knownAssignedExperiment) {
                 this.assignedExperiment = knownAssignedExperiment;
             } else {
-                getExperimentCount()
-                    .then((count) => {
-                        this.groupID = generate_groupID(count)
-                        this.assignedExperiment = AssignExp(id, count)
-                    })
-                    .catch(() => {
-                        console.log("Error getting experiment count.")
-                    })
+                this.configureExperiment()
             }
         } else {
-            getExperimentCount()
-                .then(({count}) => {
-                    this.groupID = generate_groupID(count)
-                    this.assignedExperiment = AssignExp(this.groupID, count)
-                })
-                .catch(() => {
-                    console.log("Error getting experiment count.")
-                })
+            this.configureExperiment()
         }
     }
 
@@ -57,7 +56,6 @@ export default class subject {
         copy.brand = this.brand;
         copy.silent = this.silent;
         copy.defaultNotification = this.defaultNotification;
-
 
         return copy;
     }
@@ -109,10 +107,7 @@ function generate_groupID(lastExperimentIndex) {
 function AssignExp(groupID, lastExperimentIndex) {
 
     console.log("groupID:", groupID);
-    let group_char = groupID.charAt(0)
     let experiment_group;
-
-    console.log("My group char: ", group_char, "my lastExperimentIndex: ", lastExperimentIndex)
 
     switch (lastExperimentIndex % 12) {
         case 0:

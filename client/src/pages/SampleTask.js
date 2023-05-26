@@ -3,7 +3,7 @@ import {alertConfig} from "../components/alertConfig";
 import {Button} from "reactstrap";
 import WPMtest from "../components/WPMtest";
 import Example from "../components/Example";
-import Timer from "../components/timer";
+import Timer from "../components/Timer";
 
 export default function SampleTask({context}){
 
