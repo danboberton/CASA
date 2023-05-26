@@ -6,6 +6,9 @@ export async function addToData(data){
         const result = await collection.insertOne(data)
         console.log(`A document was inserted with the _id: ${result.insertedId}`)
         return {success: true, insertID: result.insertedId}
+    }).catch(() => {
+        console.log("ERROR adding to the database, probably don't have database credentials, returning failure.")
+        return {success: false, insertID: 0}
     })
 }
 

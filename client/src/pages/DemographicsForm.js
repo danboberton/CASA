@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Form, FormGroup, Label, Input, FormText, Table, Col, Row} from 'reactstrap';
 
-export default function DemographicForm(props){
+export default function DemographicsForm(props){
 
     const handleAge = (e) =>{
         let updateObject = props.context.experimentState.getCopy();

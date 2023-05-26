@@ -12,10 +12,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
 app.get('/getCount', (req, res) =>{
     getCount()
         .then((count)=>{
