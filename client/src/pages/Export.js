@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import SaveButton from "../components/save-button";
+import SaveButton from "../components/SaveButton";
 import ClearDatabaseButton from "../components/ClearDatabaseButton";
 
 export default function Export(props){

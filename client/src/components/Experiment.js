@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button} from "reactstrap";
 import BackgroundSound from "./BackgroundSound";
 import WPMtest from "./WPMtest";
-import AlertSoundController from "./alert-sound-controller";
+import AlertSoundController from "./AlertSoundController";
 
 export default function Experiment(props) {
     const phaseData = props.context.experimentState.phaseData[props.currentPhase]

@@ -1,5 +1,5 @@
 import {Button} from "reactstrap";
-import Timer from "./timer";
+import Timer from "./Timer";
 import React from "react";
 
 export default function BreakTimer(props){

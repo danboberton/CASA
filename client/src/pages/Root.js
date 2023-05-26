@@ -1,6 +1,6 @@
 import '../App.css';
 import React, {useEffect, useState} from "react";
-import Timer from "../components/timer";
+import Timer from "../components/Timer";
 import getExperimentCount from "../api/getExperimentCount";
 
 export default function Root(props) {

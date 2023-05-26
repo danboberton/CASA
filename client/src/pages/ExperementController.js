@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
-import Experiment from "../components/experiment";
-import BreakTimer from "../components/break-timer";
+import Experiment from "../components/Experiment";
+import BreakTimer from "../components/BreakTimer";
 import {alertConfig} from "../components/alertConfig";
 
 export default function ExperimentController(props) {
